@@ -10,7 +10,6 @@ import {
 
 import { usePage, Link } from '@inertiajs/react';
 import AppLogo from './app-logo';
-import { NavFooter } from '@/components/nav-footer';
 import { NavUser } from '@/components/nav-user';
 import { iconMapper } from '@/lib/iconMapper';
 import type { LucideIcon } from 'lucide-react';
@@ -96,24 +95,6 @@ function RenderMenu({ items, level = 0 }: { items: MenuItem[]; level?: number })
 export function AppSidebar() {
   const { menus = [] } = usePage().props as { menus?: MenuItem[] };
 
-  const footerNavItems = [
-    {
-      title: 'Star this Repo',
-      url: 'https://github.com/yogijowo/laravel12-react-starterkit',
-      icon: iconMapper('Star') as LucideIcon,
-    },
-    {
-      title: 'Donate via Saweria',
-      url: 'https://saweria.co/yogijowo',
-      icon: iconMapper('Heart') as LucideIcon,
-    },
-    {
-      title: 'Donate via Ko-fi',
-      url: 'https://ko-fi.com/yogijowo',
-      icon: iconMapper('Heart') as LucideIcon,
-    },
-  ];
-
   return (
     <Sidebar collapsible="icon" variant="inset" className="border-r bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <SidebarHeader className="px-4 py-3 border-b">
@@ -134,8 +115,7 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarContent>
       <SidebarFooter className="px-4 py-3 border-t">
-        <NavUser  />
-        <NavFooter items={footerNavItems} className="justify-center gap-4" />
+        <NavUser />
       </SidebarFooter>
     </Sidebar>
   );

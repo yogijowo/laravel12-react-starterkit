@@ -2,7 +2,7 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "yogijowo/laravel12-react-starterkit",
     "type": "project",
-    "description": "Starter Kit Laravel 12 + React + Inertia + Tailwind + ShadCN UI + Spatie Permission",
+    "description": "Starter Kit Laravel 13 + React + Inertia + Tailwind + ShadCN UI + Spatie Permission",
     "keywords": [
         "laravel",
         "framework",
@@ -14,14 +14,14 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "inertiajs/inertia-laravel": "^2.0",
-        "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1",
-        "spatie/laravel-activitylog": "^4.10",
-        "spatie/laravel-backup": "^9.3",
+        "laravel/framework": "^13.0",
+        "laravel/tinker": "^3.0",
+        "spatie/laravel-activitylog": "^4.12",
+        "spatie/laravel-backup": "^10.3",
         "spatie/laravel-medialibrary": "^11.13",
-        "spatie/laravel-permission": "^6.20",
+        "spatie/laravel-permission": "^6.25",
         "tightenco/ziggy": "^2.4"
     },
     "require-dev": {
@@ -30,8 +30,8 @@
         "laravel/pint": "^1.18",
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.6",
-        "phpunit/phpunit": "^11.5.3"
+        "nunomaduro/collision": "^8.8",
+        "phpunit/phpunit": "^12.0"
     },
     "autoload": {
         "psr-4": {
@@ -80,6 +80,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

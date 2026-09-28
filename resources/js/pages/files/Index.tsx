@@ -106,7 +106,7 @@ function getFileIcon(mime: string) {
     return <FileText className="w-5 h-5 text-green-600" />;
   if (mime.includes('powerpoint') || mime.includes('presentation')) 
     return <FileText className="w-5 h-5 text-orange-500" />;
-  return <File className="w-5 h-5 text-gray-500" />;
+  return <File className="w-5 h-5 text-muted-foreground" />;
 }
 
 function isPreviewable(mime: string) {
@@ -200,11 +200,11 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
     return nodes.map((folder) => (
       <div key={folder.id} style={{ marginLeft: level * 12 }} className="mb-1">
         <div
-          className={`flex items-center gap-1 cursor-pointer hover:bg-gray-100 p-1 rounded ${currentFolderId === folder.id ? 'bg-gray-100' : ''}`}
+          className={`flex items-center gap-1 cursor-pointer hover:bg-accent p-1 rounded ${currentFolderId === folder.id ? 'bg-accent' : ''}`}
           onClick={() => router.visit(`/files?folder_id=${folder.id}`)}
         >
           {folder.children.length > 0 && (
-            <ChevronRight className="w-4 h-4 text-gray-500" />
+            <ChevronRight className="w-4 h-4 text-muted-foreground" />
           )}
           {folder.children.length === 0 && (
             <span className="w-4 h-4"></span>
@@ -218,7 +218,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-6 w-6 text-gray-500 hover:text-red-500"
+                className="h-6 w-6 text-muted-foreground hover:text-destructive"
                 onClick={(e) => {
                   e.stopPropagation();
                   setDeleteFolderId(folder.id);
@@ -238,7 +238,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                 <AlertDialogCancel>Cancel</AlertDialogCancel>
                 <AlertDialogAction
                   onClick={confirmDeleteFolder}
-                  className="bg-red-600 hover:bg-red-700"
+                  className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                 >
                   Delete
                 </AlertDialogAction>
@@ -260,7 +260,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
       <Head title="File Manager" />
       <div className="flex-1 p-4 md:p-6 grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* Sidebar Folder Tree */}
-        <div className="md:col-span-1 border rounded-lg p-4 bg-white">
+        <div className="md:col-span-1 border border-border rounded-lg p-4 bg-card">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-sm font-semibold">Folder Structure</h2>
             <Button 
@@ -276,7 +276,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
           
           <div className="overflow-y-auto max-h-[calc(100vh-250px)]">
             <div
-              className={`flex items-center gap-2 cursor-pointer hover:bg-gray-100 p-2 rounded mb-2 ${!currentFolderId ? 'bg-gray-100' : ''}`}
+              className={`flex items-center gap-2 cursor-pointer hover:bg-accent p-2 rounded mb-2 ${!currentFolderId ? 'bg-accent' : ''}`}
               onClick={() => router.visit('/files')}
             >
               <FolderRoot className="w-4 h-4 text-blue-500" />
@@ -294,7 +294,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                 {currentFolder ? currentFolder.name : 'Root Folder'}
               </h2>
               {currentFolder && (
-                <span className="text-sm text-gray-500">
+                <span className="text-sm text-muted-foreground">
                   ({files.length} {files.length === 1 ? 'item' : 'items'})
                 </span>
               )}
@@ -322,7 +322,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
           <Separator />
 
           {files.length === 0 ? (
-            <div className="flex flex-col items-center justify-center h-64 text-gray-500">
+            <div className="flex flex-col items-center justify-center h-64 text-muted-foreground">
               <Folder className="w-12 h-12 mb-2" />
               <p>No files in this folder</p>
               <Button 
@@ -339,7 +339,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
               {files.map((file) => (
                 <div 
                   key={file.id} 
-                  className="border rounded-lg p-4 hover:border-blue-500 transition-colors group cursor-pointer"
+                  className="border border-border rounded-lg bg-card p-4 hover:border-primary transition-colors group cursor-pointer"
                   onClick={() => isPreviewable(file.mime_type) ? setPreviewFile(file) : null}
                 >
                   <div className="flex items-start justify-between gap-3">
@@ -347,8 +347,8 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                       {getFileIcon(file.mime_type)}
                       <div className="overflow-hidden">
                         <p className="font-medium truncate">{file.name}</p>
-                        <p className="text-xs text-gray-500">{file.size}</p>
-                        <p className="text-xs text-gray-500">{file.created_at}</p>
+                        <p className="text-xs text-muted-foreground">{file.size}</p>
+                        <p className="text-xs text-muted-foreground">{file.created_at}</p>
                       </div>
                     </div>
                     <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -356,14 +356,14 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                         href={file.url} 
                         download={file.name}
                         onClick={(e) => e.stopPropagation()}
-                        className="p-1 text-gray-500 hover:text-blue-500"
+                        className="p-1 text-muted-foreground hover:text-primary"
                       >
                         <Download className="w-4 h-4" />
                       </a>
                       <AlertDialog>
                         <AlertDialogTrigger asChild>
                           <button 
-                            className="p-1 text-gray-500 hover:text-red-500"
+                            className="p-1 text-muted-foreground hover:text-destructive"
                             onClick={(e) => e.stopPropagation()}
                           >
                             <Trash2 className="w-4 h-4" />
@@ -386,7 +386,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                                   router.reload({ only: ['files'] });
                                 },
                               })}
-                              className="bg-red-600 hover:bg-red-700"
+                              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                             >
                               Delete
                             </AlertDialogAction>
@@ -445,21 +445,21 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                 ) : previewFile.mime_type.includes('pdf') ? (
                   <iframe 
                     src={previewFile.url} 
-                    className="w-full h-[70vh] border rounded"
+                    className="w-full h-[70vh] border border-border rounded"
                     title={previewFile.name}
                   />
                 ) : previewFile.mime_type.startsWith('text/') ? (
-                  <div className="bg-gray-100 p-4 rounded h-[70vh] overflow-auto">
+                  <div className="bg-muted p-4 rounded h-[70vh] overflow-auto">
                     <pre className="whitespace-pre-wrap">{/* Content would be loaded here */}</pre>
                   </div>
                 ) : (
-                  <div className="flex flex-col items-center justify-center h-64 text-gray-500">
+                  <div className="flex flex-col items-center justify-center h-64 text-muted-foreground">
                     <File className="w-12 h-12 mb-2" />
                     <p>Preview not available</p>
                     <a 
                       href={previewFile.url} 
                       download={previewFile.name}
-                      className="mt-2 text-blue-500 hover:underline"
+                      className="mt-2 text-primary hover:underline"
                     >
                       Download file
                     </a>

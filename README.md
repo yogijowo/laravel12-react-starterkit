@@ -1,8 +1,8 @@
-<p align="center"><img src="https://raw.githubusercontent.com/yogijowo/laravel12-react-starterkit/refs/heads/main/screenshots/landing-welcome.png" alt="Laravel 12 + React Starter Kit"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/yogijowo/laravel12-react-starterkit/refs/heads/main/screenshots/landing-welcome.png" alt="Laravel 13 + React Starter Kit"></p>
 
-# 🚀 Laravel 12 + React Starter Kit
+# 🚀 Laravel 13 + React Starter Kit
 
-A modern and flexible starter kit built with **Laravel 12**, **React (Inertia.js + TypeScript)**, **TailwindCSS**, and **ShadCN UI v4**. Designed to accelerate secure, responsive, and customizable dashboard application development.
+A modern and flexible starter kit built with **Laravel 13**, **React (Inertia.js + TypeScript)**, **TailwindCSS**, and **ShadCN UI**. Designed to accelerate secure, responsive, and customizable dashboard application development. Requires **PHP 8.3+**.
 
 ---
 
@@ -28,12 +28,12 @@ A modern and flexible starter kit built with **Laravel 12**, **React (Inertia.js
 
 | Area        | Technology                         |
 | ----------- | ---------------------------------- |
-| Backend     | Laravel 12                         |
+| Backend     | Laravel 13                         |
 | Frontend    | React 19 + Inertia.js + TypeScript |
 | UI Library  | ShadCN UI v4                       |
 | CSS Utility | TailwindCSS                        |
 | Auth        | Laravel Fortify / Breeze-style     |
-| Access Ctrl | Spatie Laravel Permission v5       |
+| Access Ctrl | Spatie Laravel Permission v6       |
 | DBMS        | MySQL / MariaDB                    |
 | Layout      | Dynamic Sidebar + Header           |
 
